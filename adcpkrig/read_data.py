@@ -20,6 +20,7 @@ def createdf(vpts,bins):
                     'v_emag','v_nmag','v_hdir']
     outputdf = moddf.merge(inputdf, on='ens_ID').loc[:,outputcols]
     outputdf.columns=['X','Y','Z','v_mag','v_x','v_y','v_z']
+    outputdf.Z = outputdf.Z * -1
 
     return outputdf
 
