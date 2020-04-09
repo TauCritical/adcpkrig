@@ -8,7 +8,7 @@ def createdf(vpts,bins):
 
     inputdf = pd.read_csv(vpts)
     
-    masterbindf = pd.read_csv(bins)
+    masterbindf = pd.read_csv(bins,index_col=None)
 
     masterbindf.columns = ['ens_ID','bin','depth','v_mag',
                             'v_emag','v_nmag','v_vcomp','v_hdir',
