@@ -1,4 +1,5 @@
 import numpy as np
+import sklearn.gaussian_process
 
 class grid():
     def __init__(self,df,xspacing,yspacing,zspacing):
@@ -44,3 +45,34 @@ class grid():
         Zmin = Zchunk[0][0][0]
 
         return (Xchunk,Ychunk,Zchunk)
+
+
+    def interpchunk(self,Xchunk,Ychunk,Zchunk):
+
+        Xmax = Xchunk[0][-1][0]
+        Xmin = Xchunk[0][0][0]
+
+        Ymax = Ychunk[-1][0][0]
+        Ymin = Ychunk[0][0][0]
+
+        Zmax = Zchunk[0][0][-1]
+        Zmin = Zchunk[0][0][0]
+
+        chunkmeas = df.loc[(df.X >= Xmin) & (df.X <= Xmax) & 
+                            (df.Y >= Ymin) & (df.Y <= Ymax) & 
+                            (df.Z >= Zmin) & (df.Z <= Zmax),:]
+
+        x = np.array(chunkmeas.X)
+        y = np.array(chunkmeas.Y)
+        z = np.array(chunkmeas.Z)
+        v_mag = np.array(chunkmeas.v_mag)
+
+        kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
+        gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
+        gp.fit(np.array([x,y,z]).T,np.array(v_mag))
+
+        test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
+
+        predict,sigma = gp.predict(test,return_std=True)
+
+        return (predict,sigma)
