@@ -1,10 +1,14 @@
 import numpy as np
 
-def makegrid(df):
+def makegrid(df,xspacing,yspacing,zspacing):
 
     x = np.array(df.X)
     y = np.array(df.Y)
     z = np.array(df.Z)
+
+    #xspacing = 5
+    #yspacing = 5
+    #zspacing = 0.5
 
     xdivisions = int((x.max()-x.min())/xspacing)+1
     ydivisions = int((y.max()-y.min())/yspacing)+1
