@@ -4,6 +4,8 @@ import sklearn.gaussian_process
 class grid():
     def __init__(self,df,xspacing,yspacing,zspacing):
 
+        self.df = df
+
         x = np.array(df.X)
         y = np.array(df.Y)
         z = np.array(df.Z)
