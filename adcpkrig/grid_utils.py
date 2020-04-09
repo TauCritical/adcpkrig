@@ -60,9 +60,9 @@ class grid():
         Zmax = Zchunk[0][0][-1]
         Zmin = Zchunk[0][0][0]
 
-        chunkmeas = df.loc[(df.X >= Xmin) & (df.X <= Xmax) & 
-                            (df.Y >= Ymin) & (df.Y <= Ymax) & 
-                            (df.Z >= Zmin) & (df.Z <= Zmax),:]
+        chunkmeas = self.df.loc[(self.df.X >= Xmin) & (self.df.X <= Xmax) & 
+                            (self.df.Y >= Ymin) & (self.df.Y <= Ymax) & 
+                            (self.df.Z >= Zmin) & (self.df.Z <= Zmax),:]
 
         x = np.array(chunkmeas.X)
         y = np.array(chunkmeas.Y)
