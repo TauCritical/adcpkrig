@@ -61,14 +61,14 @@ class grid():
         Zmax = Zchunk[0][0][-1]
         Zmin = Zchunk[0][0][0]
 
-        chunkmeas = self.df.loc[(self.df.X >= Xmin) & (self.df.X <= Xmax) & 
+        self.chunkmeas = self.df.loc[(self.df.X >= Xmin) & (self.df.X <= Xmax) & 
                             (self.df.Y >= Ymin) & (self.df.Y <= Ymax) & 
                             (self.df.Z >= Zmin) & (self.df.Z <= Zmax),:]
 
-        x = np.array(chunkmeas.X)
-        y = np.array(chunkmeas.Y)
-        z = np.array(chunkmeas.Z)
-        v_mag = np.array(chunkmeas.v_mag)
+        x = np.array(self.chunkmeas.X)
+        y = np.array(self.chunkmeas.Y)
+        z = np.array(self.chunkmeas.Z)
+        v_mag = np.array(self.chunkmeas.v_mag)
 
         #xscaler = preprocessing.StandardScaler().fit(x)
         #yscaler = preprocessing.StandardScaler().fit(y)
