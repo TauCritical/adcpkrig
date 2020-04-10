@@ -83,13 +83,12 @@ class grid():
         #self.chunkmeas['zs'] = zs
 
         #kernel=sklearn.gaussian_process.kernels.RBF(length_scale=np.array([0.01,0.01,1]))
+        test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
         kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
         gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
-        gp.fit(np.array([x,y,z]).T,np.array(v))
-
-        test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
-
+        
         try:
+            gp.fit(np.array([x,y,z]).T,np.array(v))
             predict,sigma = gp.predict(test,return_std=True)
             
         except ValueError:
