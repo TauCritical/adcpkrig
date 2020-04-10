@@ -1,7 +1,7 @@
 import numpy as np
 import sklearn.gaussian_process
 from sklearn import preprocessing
-from sklearn.utils.testing import ignore_warnings
+from sklearn.utils import ignore_warnings
 from sklearn.exceptions import ConvergenceWarning
 
 class grid():
