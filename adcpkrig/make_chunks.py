@@ -45,11 +45,9 @@ def makechunks(grid,lsize,lmargin,smallsize,smallmargin):
                 smallstart = allshape[secondlargestdim]-1-smallchunksize
             
             if largestdim == 0:
-            
                 coords.append([largestart,largeend,smallstart,smallend])
 
             else:
-
                 coords.append([smallstart,smallend,largestart,largeend])
 
     return coords
