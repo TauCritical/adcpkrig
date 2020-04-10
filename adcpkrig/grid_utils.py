@@ -89,6 +89,14 @@ class grid():
 
         test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
 
-        predict,sigma = gp.predict(test,return_std=True)
+        try:
+            predict,sigma = gp.predict(test,return_std=True)
+            
 
+        except ValueError:
+            predict = np.full(test.shape[0],np.nan)
+            sigma = np.full(test.shape[0],np.nan)
+            
         return (predict,sigma,test)
+
+        
