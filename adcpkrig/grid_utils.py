@@ -52,7 +52,7 @@ class grid():
         return (Xchunk,Ychunk,Zchunk)
 
     @ignore_warnings(category=ConvergenceWarning)
-    def interpchunk(self,Xchunk,Ychunk,Zchunk):
+    def interpchunk(self,Xchunk,Ychunk,Zchunk,kernelparams=None):
 
         Xmax = Xchunk[0][-1][0]
         Xmin = Xchunk[0][0][0]
@@ -86,7 +86,12 @@ class grid():
 
         #kernel=sklearn.gaussian_process.kernels.RBF(length_scale=np.array([0.01,0.01,1]))
         test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
-        kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
+        
+        if not kernelparams:
+            kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
+        else:
+            pass
+        
         gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
         
         try:
