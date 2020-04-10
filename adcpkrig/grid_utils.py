@@ -1,5 +1,6 @@
 import numpy as np
 import sklearn.gaussian_process
+from sklearn import preprocessing
 
 class grid():
     def __init__(self,df,xspacing,yspacing,zspacing):
@@ -69,9 +70,17 @@ class grid():
         z = np.array(chunkmeas.Z)
         v_mag = np.array(chunkmeas.v_mag)
 
+        xscaler = preprocessing.StandardScaler().fit(x)
+        yscaler = preprocessing.StandardScaler().fit(y)
+        zscaler = preprocessing.StandardScaler().fit(z)
+
+        xs = xscaler.transform(x)
+        ys = yscaler.transform(y)
+        zs = zscaler.transform(z)
+
         kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
         gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
-        gp.fit(np.array([x,y,z]).T,np.array(v_mag))
+        gp.fit(np.array([xs,ys,zs]).T,np.array(v_mag))
 
         test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
 
