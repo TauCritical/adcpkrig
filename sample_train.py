@@ -11,6 +11,7 @@ largespace = int(sys.argv[2])
 largeoverlap = int(sys.argv[3])
 smallspace = int(sys.argv[4])
 smalloverlap = int(sys.argv[5])
+vdirection = sys.argv[6]
 
 df = adcpkrig.createdf('vpts_sample.csv','bin_sample.csv')
 
@@ -41,7 +42,7 @@ for i in range(len(coords)):
 
     
     Xchunk,Ychunk,Zchunk = mygrid.chunk((xmin,xmax),(ymin,ymax),(zmin,zmax))
-    predict,sigma,test = mygrid.interpchunk(Xchunk,Ychunk,Zchunk)
+    predict,sigma,test = mygrid.interpchunk(Xchunk,Ychunk,Zchunk,vdirection)
     predicts[i] = predict
     tests[i] = test
     coordsdict[i] = testcoords
@@ -51,7 +52,7 @@ for i in range(len(coords)):
     else:
         print('{}/{}'.format(i,len(coords)))
 
-with open('{}_predicts.pickle'.format(runid), 'wb') as handle:
+with open('{}_predicts_{}.pickle'.format(runid,vdirection), 'wb') as handle:
     pickle.dump(predicts, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 with open('{}_tests.pickle'.format(runid), 'wb') as handle:
