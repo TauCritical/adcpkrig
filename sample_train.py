@@ -54,8 +54,8 @@ for i in range(len(coords)):
 with open('{}_predicts.pickle'.format(runid), 'wb') as handle:
     pickle.dump(predicts, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-with open('{}_tests.pickle'format(runid), 'wb') as handle:
+with open('{}_tests.pickle'.format(runid), 'wb') as handle:
     pickle.dump(tests, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-with open('{}_coordsdict.pickle'format(runid), 'wb') as handle:
+with open('{}_coordsdict.pickle'.format(runid), 'wb') as handle:
     pickle.dump(coordsdict, handle, protocol=pickle.HIGHEST_PROTOCOL)
