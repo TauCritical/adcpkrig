@@ -6,11 +6,11 @@ import pandas as pd
 import pickle
 import sys
 
-
-largespace = sys.argv[1]
-largeoverlap = sys.argv[2]
-smallspace = sys.argv[3]
-smalloverlap = sys.argv[4]
+runid = sys.argv[1]
+largespace = sys.argv[2]
+largeoverlap = sys.argv[3]
+smallspace = sys.argv[4]
+smalloverlap = sys.argv[5]
 
 df = adcpkrig.createdf('vpts_sample.csv','bin_sample.csv')
 
@@ -51,11 +51,11 @@ for i in range(len(coords)):
     else:
         print('{}/{}'.format(i,len(coords)))
 
-with open('predicts.pickle', 'wb') as handle:
+with open('{}_predicts.pickle'.format(runid), 'wb') as handle:
     pickle.dump(predicts, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-with open('tests.pickle', 'wb') as handle:
+with open('{}_tests.pickle'format(runid), 'wb') as handle:
     pickle.dump(tests, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-with open('coordsdict.pickle', 'wb') as handle:
+with open('{}_coordsdict.pickle'format(runid), 'wb') as handle:
     pickle.dump(coordsdict, handle, protocol=pickle.HIGHEST_PROTOCOL)
