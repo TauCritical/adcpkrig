@@ -56,7 +56,7 @@ class grid():
 
         return (Xchunk,Ychunk,Zchunk)
 
-    def interpchunk(self,Xchunk,Ychunk,Zchunk,kernelparams=None):
+    def interpchunk(self,Xchunk,Ychunk,Zchunk,vdirection,kernelparams=None):
 
         Xmax = Xchunk[0][-1][0]
         Xmin = Xchunk[0][0][0]
@@ -74,7 +74,7 @@ class grid():
         x = np.array(self.chunkmeas.X)
         y = np.array(self.chunkmeas.Y)
         z = np.array(self.chunkmeas.Z)
-        v = np.array(self.chunkmeas.v_mag)
+        v = np.array(self.chunkmeas[vdirection])
 
         #xscaler = preprocessing.StandardScaler().fit(x)
         #yscaler = preprocessing.StandardScaler().fit(y)
