@@ -74,9 +74,9 @@ class grid():
         #yscaler = preprocessing.StandardScaler().fit(y)
         #zscaler = preprocessing.StandardScaler().fit(z)
 
-        xs = preprocessing.scale(x)
-        ys = preprocessing.scale(y)
-        zs = preprocessing.scale(z)
+        #xs = preprocessing.scale(x)
+        #ys = preprocessing.scale(y)
+        #zs = preprocessing.scale(z)
 
         self.chunkmeas['xs'] = xs
         self.chunkmeas['ys'] = ys
