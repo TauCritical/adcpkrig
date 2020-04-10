@@ -70,13 +70,13 @@ class grid():
         z = np.array(chunkmeas.Z)
         v_mag = np.array(chunkmeas.v_mag)
 
-        xscaler = preprocessing.StandardScaler().fit(x)
-        yscaler = preprocessing.StandardScaler().fit(y)
-        zscaler = preprocessing.StandardScaler().fit(z)
+        #xscaler = preprocessing.StandardScaler().fit(x)
+        #yscaler = preprocessing.StandardScaler().fit(y)
+        #zscaler = preprocessing.StandardScaler().fit(z)
 
-        xs = xscaler.transform(x)
-        ys = yscaler.transform(y)
-        zs = zscaler.transform(z)
+        xs = preprocessing.scale(x)
+        ys = preprocessing.scale(y)
+        zs = preprocessing.scale(z)
 
         kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
         gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
