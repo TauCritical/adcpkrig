@@ -2,6 +2,7 @@ import numpy as np
 import sklearn.gaussian_process
 from sklearn import preprocessing
 import sys
+import warnings
 
 if not sys.warnoptions:
     warnings.simplefilter("ignore")
