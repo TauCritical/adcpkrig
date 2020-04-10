@@ -3,6 +3,7 @@ import sklearn.gaussian_process
 from sklearn import preprocessing
 import sys
 import warnings
+import os
 
 if not sys.warnoptions:
     warnings.simplefilter("ignore")
