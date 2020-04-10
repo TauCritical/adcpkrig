@@ -6,13 +6,13 @@ def makechunks(grid,lsize,lmargin,smallsize,smallmargin):
     largestdim = allshape.argmax()
     secondlargestdim = allshape[-largestdim].argmax()
 
-    largechunksize = 20
-    largechunkmargin = 3
+    largechunksize = lsize
+    largechunkmargin = lmargin
     largechunkoverlap = largechunkmargin*2
 
 
-    smallchunksize = 5
-    smallchunkmargin = 2
+    smallchunksize = smallsize
+    smallchunkmargin = smallmargin
     smallchunkoverlap = smallchunkmargin*2
 
     zchunksize = None
