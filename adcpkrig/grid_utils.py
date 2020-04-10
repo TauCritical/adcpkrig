@@ -92,7 +92,6 @@ class grid():
         try:
             predict,sigma = gp.predict(test,return_std=True)
             
-
         except ValueError:
             predict = np.full(test.shape[0],np.nan)
             sigma = np.full(test.shape[0],np.nan)
