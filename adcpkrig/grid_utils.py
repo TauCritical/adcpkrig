@@ -54,7 +54,6 @@ class grid():
 
         return (Xchunk,Ychunk,Zchunk)
 
-    @ignore_warnings(category=ConvergenceWarning)
     def interpchunk(self,Xchunk,Ychunk,Zchunk,kernelparams=None):
 
         Xmax = Xchunk[0][-1][0]
