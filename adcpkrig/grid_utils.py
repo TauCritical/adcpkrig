@@ -1,8 +1,11 @@
 import numpy as np
 import sklearn.gaussian_process
 from sklearn import preprocessing
-from sklearn.utils import ignore_warnings
-from sklearn.exceptions import ConvergenceWarning
+import sys
+
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+    os.environ["PYTHONWARNINGS"] = "ignore" # Also affect subprocesses
 
 class grid():
     def __init__(self,df,xspacing,yspacing,zspacing):
