@@ -78,9 +78,9 @@ class grid():
         #ys = preprocessing.scale(y)
         #zs = preprocessing.scale(z)
 
-        self.chunkmeas['xs'] = xs
-        self.chunkmeas['ys'] = ys
-        self.chunkmeas['zs'] = zs
+        #self.chunkmeas['xs'] = xs
+        #self.chunkmeas['ys'] = ys
+        #self.chunkmeas['zs'] = zs
 
         #kernel=sklearn.gaussian_process.kernels.RBF(length_scale=np.array([0.01,0.01,1]))
         kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
