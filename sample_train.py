@@ -7,10 +7,10 @@ import pickle
 import sys
 
 runid = sys.argv[1]
-largespace = sys.argv[2]
-largeoverlap = sys.argv[3]
-smallspace = sys.argv[4]
-smalloverlap = sys.argv[5]
+largespace = int(sys.argv[2])
+largeoverlap = int(sys.argv[3])
+smallspace = int(sys.argv[4])
+smalloverlap = int(sys.argv[5])
 
 df = adcpkrig.createdf('vpts_sample.csv','bin_sample.csv')
 
