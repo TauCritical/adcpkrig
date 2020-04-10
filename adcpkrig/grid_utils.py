@@ -91,4 +91,4 @@ class grid():
 
         predict,sigma = gp.predict(test,return_std=True)
 
-        return (predict,sigma)
+        return (predict,sigma,test)
