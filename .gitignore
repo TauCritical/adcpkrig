@@ -5,4 +5,5 @@
 */.pyc
 Prototype.ipynb
 prototype_analysis.py
+prototype_utils.py
 *.pickle
