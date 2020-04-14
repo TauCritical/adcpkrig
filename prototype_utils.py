@@ -156,13 +156,13 @@ class analysis():
                             (df.Z >= Zmin) & (df.Z <= Zmax),:].copy()
 
         cdf = self.comparedf
-        comparedf = cdf.loc[(cdf.X >= Xmin) & (cdf.X <= Xmax) & 
+        cdf = cdf.loc[(cdf.X >= Xmin) & (cdf.X <= Xmax) & 
                             (cdf.Y >= Ymin) & (cdf.Y <= Ymax) & 
                             (cdf.Z >= Zmin) & (cdf.Z <= Zmax),:].copy()
 
-        comparedf['X_i'] = comparedf.X.apply(lambda row: chunkmeas.X[find_nearest(chunkmeas.X,row)])
-        comparedf['Y_i'] = comparedf.Y.apply(lambda row: chunkmeas.Y[find_nearest(chunkmeas.Y,row)])
-        comparedf['Z_i'] = comparedf.Z.apply(lambda row: chunkmeas.Z[find_nearest(chunkmeas.Z,row)])
+        cdf['X_i'] = cdf.X.apply(lambda row: chunkmeas.X[find_nearest(chunkmeas.X,row)])
+        cdf['Y_i'] = cdf.Y.apply(lambda row: chunkmeas.Y[find_nearest(chunkmeas.Y,row)])
+        cdf['Z_i'] = cdf.Z.apply(lambda row: chunkmeas.Z[find_nearest(chunkmeas.Z,row)])
 
         mergedf = pd.merge(cdf,df,left_on=['X_i','Y_i','Z_i'],
                                 right_on=['X','Y','Z'],suffixes=('_meas','_model'))
