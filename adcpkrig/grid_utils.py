@@ -57,7 +57,7 @@ class grid():
         return (Xchunk,Ychunk,Zchunk)
 
     def boundchunk(self,Xchunk,Ychunk,Zchunk):
-        
+        pass
     
     def interpchunk(self,Xchunk,Ychunk,Zchunk,vdirection,kernelparams=None):
 
