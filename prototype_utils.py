@@ -279,16 +279,18 @@ class analysis():
         Y=np.array(results.loc[results.Z==depth,:].Y)
         Z=np.array(results.loc[results.Z==depth,:][0])
 
-        X = np.reshape(X,(results.X.unique().shape[0],-1))
-        Y = np.reshape(Y,(results.X.unique().shape[0],-1))
-        Z = np.reshape(Z,(results.X.unique().shape[0],-1))
+        X = np.reshape(X,(results.Y.unique().shape[0],-1))
+        Y = np.reshape(Y,(results.Y.unique().shape[0],-1))
+        Z = np.reshape(Z,(results.Y.unique().shape[0],-1))
         levels = mpl.ticker.MaxNLocator(nbins=15).tick_values(Z.min(), Z.max())
 
-        h,w = mpl.figure.figaspect(X)
+        w,h = mpl.figure.figaspect(X)
         fig,ax = plt.subplots(1,1,figsize=(w,h))
         cs = ax.contourf(X,Y,Z,levels=levels)
         cbar = fig.colorbar(cs)
         fig.show()
+
+        return True
 
 
     def calcaccuracy(self):
