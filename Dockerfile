@@ -1,4 +1,4 @@
-FROM python:3.8.2-stretch
+FROM python:3.8.2-apline3.11
 
 COPY requirements.txt /tmp/
 
