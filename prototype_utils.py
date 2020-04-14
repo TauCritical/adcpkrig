@@ -116,6 +116,58 @@ class analysis():
                             (df.Z >= Zmin) & (df.Z <= Zmax),:].copy()
                         
         return chunkmeas[vdir]
+
+    def accuracycompareonechunk(self,chunknumber,predict,vdir):
+        
+        test = self.tests[chunknumber]
+        
+        iv = predict.T
+        ix = test[:,0]
+        iy = test[:,1]
+        iz = test[:,2]
+        
+        
+        df = pd.DataFrame(ix)
+        df.columns = ['X']
+        df['Y'] = iy
+        df['Z'] = iz
+        df['v'] = iv
+
+        testcoords = self.coords[chunknumber]
+        xmin = testcoords[2]
+        xmax = testcoords[3]
+        ymin = testcoords[0]
+        ymax = testcoords[1]
+        zmin = 0
+        zmax = self.mygrid.Z.shape[2]
+
+        Xchunk,Ychunk,Zchunk = self.mygrid.chunk((xmin,xmax),(ymin,ymax),(zmin,zmax))
+        Xmax = Xchunk[0][-1][0]
+        Xmin = Xchunk[0][0][0]
+
+        Ymax = Ychunk[-1][0][0]
+        Ymin = Ychunk[0][0][0]
+
+        Zmax = Zchunk[0][0][-1]
+        Zmin = Zchunk[0][0][0]
+
+        chunkmeas = df.loc[(df.X >= Xmin) & (df.X <= Xmax) & 
+                            (df.Y >= Ymin) & (df.Y <= Ymax) & 
+                            (df.Z >= Zmin) & (df.Z <= Zmax),:].copy()
+
+        cdf = self.comparedf
+        comparedf = cdf.loc[(cdf.X >= Xmin) & (cdf.X <= Xmax) & 
+                            (cdf.Y >= Ymin) & (cdf.Y <= Ymax) & 
+                            (cdf.Z >= Zmin) & (cdf.Z <= Zmax),:].copy()
+
+        comparedf['X_i'] = comparedf.X.apply(lambda row: chunkmeas.X[find_nearest(chunkmeas.X,row)])
+        comparedf['Y_i'] = comparedf.Y.apply(lambda row: chunkmeas.Y[find_nearest(chunkmeas.Y,row)])
+        comparedf['Z_i'] = comparedf.Z.apply(lambda row: chunkmeas.Z[find_nearest(chunkmeas.Z,row)])
+
+        mergedf = pd.merge(cdf,df,left_on=['X_i','Y_i','Z_i'],
+                                right_on=['X','Y','Z'],suffixes=('_meas','_model'))
+
+        return mergedf
         
 
     def mergepredicts(self):
