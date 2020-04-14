@@ -361,16 +361,16 @@ class analysis():
 
         fig.show()
     
-    def compare1(self,predict,sparse):
+    def compare1(self,predict,sparse,title1='Interpolated Grid',title2='Sparse Measurements'):
         fig,axs = plt.subplots(1,2,figsize=(8,4))
 
         axs[0].hist(predict,bins=20)
         axs[0].set_xlabel('Velocity, in meters per second')
-        axs[0].set_title('Interpolated Grid')
+        axs[0].set_title(title1)
 
         axs[1].hist(sparse,bins=20)
         axs[1].set_xlabel('Velocity, in meters per second')
-        axs[1].set_title('Sparse Measurements')
+        axs[1].set_title(title2)
 
 
     def compare2(self,predict,predict1,sparse):
