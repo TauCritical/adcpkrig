@@ -56,6 +56,9 @@ class grid():
 
         return (Xchunk,Ychunk,Zchunk)
 
+    def boundchunk(self,Xchunk,Ychunk,Zchunk):
+        
+    
     def interpchunk(self,Xchunk,Ychunk,Zchunk,vdirection,kernelparams=None):
 
         Xmax = Xchunk[0][-1][0]
@@ -94,7 +97,7 @@ class grid():
         if not kernelparams:
             kernel=sklearn.gaussian_process.kernels.RationalQuadratic()
         else:
-            pass
+            kernel=kernelparams
         
         gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
         
