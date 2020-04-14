@@ -78,7 +78,7 @@ class analysis():
         pass
 
 
-    def interponechunk(self,chunknumber,vdir):
+    def interponechunk(self,chunknumber,vdir,kernelparams=None):
         testcoords = self.coords[chunknumber]
         xmin = testcoords[2]
         xmax = testcoords[3]
@@ -87,7 +87,7 @@ class analysis():
         zmin = 0
         zmax = self.mygrid.Z.shape[2]
         Xchunk,Ychunk,Zchunk = self.mygrid.chunk((xmin,xmax),(ymin,ymax),(zmin,zmax))
-        predict1,sigma,test = self.mygrid.interpchunk(Xchunk,Ychunk,Zchunk,vdir)
+        predict1,sigma,test = self.mygrid.interpchunk(Xchunk,Ychunk,Zchunk,vdir,kernelparams)
         return predict1,sigma,test
 
     def readrawonechunk(self,chunknumber,vdir):
