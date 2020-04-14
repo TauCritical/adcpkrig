@@ -1,40 +1,5 @@
 #!/bin/bash
 #
-python sample_train.py 2 10 4 20 4 v_mag
-python sample_train.py 2 10 4 20 4 v_x
-python sample_train.py 2 10 4 20 4 v_y
-python sample_train.py 2 10 4 20 4 v_z
-aws s3 cp 2_predicts_v_mag.pickle s3://adcpkrig/
-aws s3 cp 2_predicts_v_x.pickle s3://adcpkrig/
-aws s3 cp 2_predicts_v_y.pickle s3://adcpkrig/
-aws s3 cp 2_predicts_v_z.pickle s3://adcpkrig/
-
-python sample_train.py 3 10 4 40 4 v_mag
-python sample_train.py 3 10 4 40 4 v_x
-python sample_train.py 3 10 4 40 4 v_y
-python sample_train.py 3 10 4 40 4 v_z
-aws s3 cp 3_predicts_v_mag.pickle s3://adcpkrig/
-aws s3 cp 3_predicts_v_x.pickle s3://adcpkrig/
-aws s3 cp 3_predicts_v_y.pickle s3://adcpkrig/
-aws s3 cp 3_predicts_v_z.pickle s3://adcpkrig/
-
-python sample_train.py 4 20 4 10 4 v_mag
-python sample_train.py 4 20 4 10 4 v_x
-python sample_train.py 4 20 4 10 4 v_y
-python sample_train.py 4 20 4 10 4 v_z
-aws s3 cp 4_predicts_v_mag.pickle s3://adcpkrig/
-aws s3 cp 4_predicts_v_x.pickle s3://adcpkrig/
-aws s3 cp 4_predicts_v_y.pickle s3://adcpkrig/
-aws s3 cp 4_predicts_v_z.pickle s3://adcpkrig/
-
-python sample_train.py 5 20 4 20 4 v_mag
-python sample_train.py 5 20 4 20 4 v_x
-python sample_train.py 5 20 4 20 4 v_y
-python sample_train.py 5 20 4 20 4 v_z
-aws s3 cp 5_predicts_v_mag.pickle s3://adcpkrig/
-aws s3 cp 5_predicts_v_x.pickle s3://adcpkrig/
-aws s3 cp 5_predicts_v_y.pickle s3://adcpkrig/
-aws s3 cp 5_predicts_v_z.pickle s3://adcpkrig/
 
 python sample_train.py 6 20 4 40 4 v_mag
 python sample_train.py 6 20 4 40 4 v_x
