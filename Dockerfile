@@ -8,5 +8,5 @@ COPY . /app
 
 WORKDIR /app
 
-CMD python ./sample_train.py 6 20 4 40 4 v_mag
+CMD python /app/sample_train.py 6 20 4 40 4 v_mag
 
