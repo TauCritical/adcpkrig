@@ -8,5 +8,5 @@ WORKDIR /app
 
 COPY . /app
 
-CMD ["python", "./sample_train.py 6 20 4 40 4"]
+CMD ["python", "./sample_train.py 6 20 4 40 4 v_mag"]
 
