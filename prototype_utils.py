@@ -304,7 +304,7 @@ class analysis():
         self.accdf = pd.merge(comparedf,self.alldf,left_on=['X_i','Y_i','Z_i'],
                                 right_on=['X','Y','Z'],suffixes=('_meas','_model'))
 
-    def plotscatter(self):
+    def plotscatter(self,analysisnumber):
         fig = plt.figure(figsize=(16,16))
 
         gs = gridspec.GridSpec(2,2)
@@ -317,8 +317,10 @@ class analysis():
         #fig,ax = plt.subplots(2,2,figsize=(20,20))
 
         universfile = 'C:\\Fonts\\Univers-Condensed.ttf'
+        universboldfile = 'C:\\Fonts\\Univers-CondensedBold.ttf'
         ticks_font = mpl.font_manager.FontProperties(fname=universfile,style='normal',size=16, weight='normal', stretch='normal')
         label_font = mpl.font_manager.FontProperties(family='Arial',style='normal',size=20, weight='normal', stretch='normal')
+        title_font = mpl.font_manager.FontProperties(fname=universboldfile,style='normal',size=28, weight='bold', stretch='normal')
 
         plotnames = ['Velocity Magnitude','East Magnitude','North Magnitude','Vertical Magnitude']
         colnames = ['v_mag','v_x','v_y','v_z']
@@ -361,6 +363,8 @@ class analysis():
         gs.update(hspace=0.07)
         gs.update(wspace=0.07)
 
+        fig.suptitle('Analysis number {}'.format(analysisnumber),fontproperties=title_font)
+        fig.savefig('scatter_{}'.format(analysisnumber))
         fig.show()
     
     def compare1(self,predict,sparse,title1='Interpolated Grid',title2='Sparse Measurements'):
