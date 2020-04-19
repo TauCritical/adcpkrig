@@ -394,5 +394,7 @@ class analysis():
         axs[2].set_xlabel('Velocity, in meters per second')
         axs[2].set_title('Sparse Measurements')
 
+        plt.tight_layout()
+
     def compareall(self):
         pass
