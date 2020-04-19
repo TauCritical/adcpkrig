@@ -2,11 +2,15 @@
 
 This repository contains a python package adcpkrig and associated helper scripts/functions/environments to analyze a sample dataset with multiple hyperparameters.
 
+The package 'adcpkrig' is meant to be reproducible code that can be applied to a variety of datasets. The code requires input csv files created by another codebase (USGS geomorph toolbox, currently unpublished), with examples shown as 'bin_sample.csv' and 'vpts_sample.csv'.
+
+Individual files in this repository are listed and explained below.
+
 # Files
 
 ## adcpkrig
 
-Directory containing python module adcpkrig. Contains functions for creating and interpolating grids.
+Directory containing python package adcpkrig. Contains functions for creating and interpolating grids.
 
 ## .dockerignore
 
