@@ -1,6 +1,6 @@
 # adcpkrig
 
-This repository contains a python package adcpkrig and associated helper scripts/functions/environments to analyze a sample dataset with multiple hyperparameters.
+This repository contains a python package adcpkrig and associated helper scripts/functions/environments to analyze a sample dataset with multiple hyperparameters. This code uses gaussian process regression (simple kriging) to interpolate sparse hydroacoustic measurements of riverine velocity into a spatially continuous grid of specified resolution.
 
 The package 'adcpkrig' is meant to be reproducible code that can be applied to a variety of datasets. The code requires input csv files created by another codebase (USGS geomorph toolbox, currently unpublished), with examples shown as 'bin_sample.csv' and 'vpts_sample.csv'.
 
