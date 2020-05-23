@@ -4,7 +4,7 @@ This repository contains a python package adcpkrig and associated helper scripts
 
 The package 'adcpkrig' is meant to be reproducible code that can be applied to a variety of datasets. The code requires input csv files created by another codebase (USGS geomorph toolbox, currently unpublished), with examples shown as 'bin_sample.csv' and 'vpts_sample.csv'.
 
-Files in this upper level directory are part of a semester project for Georgia Tech's ISYE 6748, in which I conducted a variety of analyses using adcpkrig for the sample dataset provided. Files containing the name 'prototype' or 'sample' contain code specific to this analysis and may be used as templates for reproducing this work or applying adcpkrig to other datasets. Currently, the analysis workflow is as follows:
+Files in this upper level directory are part of a semester project for Georgia Tech's ISYE 6748, in which I conducted a variety of analyses using adcpkrig for the sample dataset provided. For the final report on this project, please see 'GT_ISYE_final_report.pdf'. Files containing the name 'prototype' or 'sample' contain code specific to this analysis and may be used as templates for reproducing this work or applying adcpkrig to other datasets. Currently, the analysis workflow is as follows:
 
 ## Build and run docker image
 docker build -t <containername> .
@@ -20,7 +20,7 @@ In sample_train.py, various adcpkrig functions are called to read in the data, p
 
 Of note, the code to merge individual chunks into a final grid is currently housed in 'prototype_utils.py' and should be moved to the adcpkrig package.
 
-## Tranfer .pickle files
+## Transfer .pickle files
 
 Outputs from the sample_train.py interpolation process are saved as .pickle objects. If running analysis on a VM (e.g. EC2 instance) they should be transferred to the same directory as 'Prototype.ipynb'.
 
