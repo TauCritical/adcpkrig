@@ -146,8 +146,6 @@ class grid():
         else:
             kernel=kernelparams
         
-        # Note that as normalize_y=True, the large X/Y values in the coordinate arrays representing
-        # UTM coordinates are normalized by removing mean and scaling to unit variance
         gp = sklearn.gaussian_process.GaussianProcessRegressor(kernel=kernel,normalize_y=True)
         
         try:
