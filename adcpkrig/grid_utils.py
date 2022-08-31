@@ -79,19 +79,6 @@ class grid():
         z = np.array(self.chunkmeas.Z)
         v = np.array(self.chunkmeas[vdirection])
 
-        #xscaler = preprocessing.StandardScaler().fit(x)
-        #yscaler = preprocessing.StandardScaler().fit(y)
-        #zscaler = preprocessing.StandardScaler().fit(z)
-
-        #xs = preprocessing.scale(x)
-        #ys = preprocessing.scale(y)
-        #zs = preprocessing.scale(z)
-
-        #self.chunkmeas['xs'] = xs
-        #self.chunkmeas['ys'] = ys
-        #self.chunkmeas['zs'] = zs
-
-        #kernel=sklearn.gaussian_process.kernels.RBF(length_scale=np.array([0.01,0.01,1]))
         test = np.stack([np.ravel(Xchunk),np.ravel(Ychunk),np.ravel(Zchunk)],axis=1)
         
         if not kernelparams:
